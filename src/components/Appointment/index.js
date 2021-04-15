@@ -1,8 +1,6 @@
 import React from "react";
 import "./styles.scss";
-// import Header from "../Appointment";
-// import Show from "../Appointment";
-// import Empty from "../Appointment";
+
 import Header from "./Header";
 import Show from "./Show";
 import Empty from "./Empty";

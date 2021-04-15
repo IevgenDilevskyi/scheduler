@@ -59,9 +59,7 @@ export default function Application(props) {
 
   useEffect(() => {
     axios.get(url).then(response => {
-      // console.log("days", response.data);
-      setDays([response.data]);
-      // console.log("days", days)
+      setDays([...response.data]);
     })}, []);
 
   let [day, setDay] = useState('Monday');
@@ -86,7 +84,6 @@ export default function Application(props) {
         />
         <hr className="sidebar__separator sidebar--centered" />
           <nav className="sidebar__menu">
-          {console.log("Days", days)}
             <DayList
               days={days}
               day={day}
