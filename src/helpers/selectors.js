@@ -1,4 +1,4 @@
-
+//returns array of appointments objects
 export function getAppointmentsForDay(state, day) {
   const result = [];
 
@@ -12,6 +12,7 @@ export function getAppointmentsForDay(state, day) {
     return result;
 }
 
+//returns interview object
 export function getInterview(state, interview) {
   if(!interview) {return null};
 
