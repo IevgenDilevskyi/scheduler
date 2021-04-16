@@ -5,7 +5,6 @@ import "components/Application.scss";
 import DayList from "components/DayList";
 import Appointment from "components/Appointment";
 import {getAppointmentsForDay, getInterview, getInterviewersForDay} from "../helpers/selectors";
-import useVisualMode from "../hooks/useVisualMode"
 
 export default function Application(props) {
 
@@ -35,6 +34,20 @@ export default function Application(props) {
 
   function bookInterview(id, interview) {
     console.log(id, interview);
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+    
+     return axios.put(`/api/appointments/${id}`, appointment)
+      .then(res => {
+        setState({...state, appointments})
+      
+      })
   }
 
   const schedule = dailyAppointments.map(appointment => {
