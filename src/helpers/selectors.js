@@ -1,3 +1,4 @@
+
 //returns array of appointments objects
 export function getAppointmentsForDay(state, day) {
   const result = [];
