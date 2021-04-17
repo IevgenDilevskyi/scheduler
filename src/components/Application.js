@@ -24,7 +24,6 @@ export default function Application(props) {
     const promises = [daysPromise, appointmentsPromise, interviewersPromise];
     Promise.all(promises)    
     .then(res => {
-      console.log("Promise.all RESPONSE",res);
         setState(prev => ({...prev, days: res[0].data, appointments: res[1].data, interviewers: res[2].data}))
       })
     }, []);
@@ -33,7 +32,6 @@ export default function Application(props) {
   const dailyInterviewers = getInterviewersForDay(state, state.day);
   
   function bookInterview(id, interview) {
-    // console.log(id, interview);
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
@@ -43,7 +41,7 @@ export default function Application(props) {
       [id]: appointment
     };   
      return axios.put(`/api/appointments/${id}`, appointment)
-      .then(setState({...state, appointments}))
+      .then((prev) => setState({...prev, appointments}))
   }
 
   function cancelInterview(id) {
@@ -56,13 +54,12 @@ export default function Application(props) {
       [id]: appointment
     };
     return axios.delete(`/api/appointments/${id}`)
-      .then(setState({...state, appointments}))
+      .then((prev) => setState({...prev, appointments}))
+      .catch((error) => {throw error})
   }
 
   const schedule = dailyAppointments.map(appointment => {
     const interview = getInterview(state, appointment.interview);
-    console.log("appointment", appointment);
-    console.log("interview", interview);
     return(
       <Appointment
         {...appointment}
