@@ -1,29 +1,31 @@
 import React, {useState} from 'react';
-
 import Button from "../../components/Button"
 import InterviewerList from "../../components/InterviewerList";
 
-const Form = (props) => {
-  
+//Form for creating or editing interview
+export default function Form (props) {
+  //State for student name, selected interviewer and error
   const [name, setName] = useState(props.name || "");
   const [selectedInterviewer, setInterviewer] = useState(props.interviewer || null);
   const [error, setError] = useState("");
 
-  // const setInterviewer = () => props.setInterviewer;
-  // const interviewer = props.interviewer;
   const reset = () => {
     setName("")
     setInterviewer(null)
   }
-
+  //Clears the form and returns to previous state(EMPTY)
   const cancel = () => {
     reset()
     props.onCancel()
   }
-
+  //Student name validation
   function validate() {
     if (name === "") {
       setError("Student name cannot be blank");
+      return;
+    }
+    if (!selectedInterviewer) {
+      setError("Please select interviewer");
       return;
     }
     setError("");
@@ -45,7 +47,6 @@ const Form = (props) => {
           />
         </form>
         <section className="appointment__validation">{error}</section>
-        {/* <InterviewerList interviewers={props.interviewers} interviewer={props.interviewer} setInterviewer={props.setInterviewer} /> */}
         <InterviewerList interviewers={props.interviewers} interviewer={selectedInterviewer} setInterviewer={setInterviewer} />
       </section>
       <section className="appointment__card-right">
@@ -59,5 +60,3 @@ const Form = (props) => {
   )
 
 }
-
-export default Form;

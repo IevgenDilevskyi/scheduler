@@ -1,5 +1,5 @@
 import React from "react";
-
+//Empty form with "Add" button
 export default function Empty(props) {
   return (
     <main className="appointment__add">

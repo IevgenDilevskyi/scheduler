@@ -53,6 +53,7 @@ const fixtures = {
   }
 };
 
+//mocks axios functions
 export default {
   // defaults: { baseURL: "" },
   get: jest.fn(url => {

@@ -11,8 +11,9 @@ import Error from "./Error";
 import useVisualMode from "hooks/useVisualMode";
 
 
-
+//Main Appointment component which renders view of the appointment depending on state. Called in Application.js
 export default function Appointment(props) {
+  //Variables for mode state that conditionally get passed to useVisualMode file
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
@@ -23,11 +24,12 @@ export default function Appointment(props) {
   const ERROR_SAVE = "ERROR_SAVE";
   const ERROR_DELETE = "ERROR_DELETE";
 
-
+  // Mode and functions that change its state
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
 
+  // Saves the interview data and changes the state of the mode
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -39,13 +41,14 @@ export default function Appointment(props) {
       .catch (() => transition(ERROR_SAVE, true))
   }
 
+  // Deletes the interview data and changes the state of the mode
   function deleteInterview() {
     transition(DELETING, true)
     props.cancelInterview(props.id)
     .then (() => transition(EMPTY))
       .catch (() => transition(ERROR_DELETE, true))
   }
-  // console.log("PROPS", props);
+  
   return(
     <article className="appointment" data-testid="appointment">
        <Header time={props.time}/>
@@ -69,5 +72,3 @@ export default function Appointment(props) {
   )
 
 }
-
-// If props.interview is truthy (an interview object) the Appointment will render the <Show /> component, else it should render the <Empty /> component.

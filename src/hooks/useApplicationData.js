@@ -11,12 +11,14 @@ export default function useApplicationData() {
     interviewers: {}
   });
   const setDay = day => setState(prev => ({ ...prev, day }));
+  
   // Side effects hook
   useEffect(() => {
     const daysPromise = axios.get("/api/days");
     const appointmentsPromise = axios.get("/api/appointments");
     const interviewersPromise = axios.get("/api/interviewers");
     const promises = [daysPromise, appointmentsPromise, interviewersPromise];
+    
     //Gets promises from axios calls and .then setState with this data
     Promise.all(promises)    
     .then((res) => {

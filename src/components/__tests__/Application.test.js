@@ -1,9 +1,7 @@
 import React from "react";
 import axios from "axios";
 import {waitForElement, getByText, queryByText, prettyDOM, getAllByTestId, getByAltText, getByPlaceholderText, queryByAltText} from '@testing-library/react';
-
 import { render, cleanup, fireEvent } from "@testing-library/react";
-
 import Application from "components/Application";
 
 afterEach(cleanup);
@@ -38,12 +36,6 @@ describe("Application", () => {
       queryByText(day, "Monday")
     );
     expect(getByText(day, "no spots remaining")).toBeInTheDocument();
-    // console.log(prettyDOM(day));
-   
-    // debug();
-
-    // console.log(prettyDOM(appointment));
-
 
   });
 
@@ -71,7 +63,7 @@ describe("Application", () => {
       queryByText(day, "Monday")
     );
     expect(getByText(day, "2 spots remaining")).toBeInTheDocument();
-    console.log(prettyDOM(appointment))
+    // console.log(prettyDOM(appointment))
     // debug(appointment);
   });
 
@@ -103,8 +95,7 @@ describe("Application", () => {
       queryByText(day, "Monday")
     );
     expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
-    // console.log(prettyDOM(appointment))
-    // debug(appointment);
+    
   });
 
   it("shows the save error when failing to save an appointment", async () => {
@@ -125,12 +116,8 @@ describe("Application", () => {
     expect(getByText(appointment, "Saving")).toBeInTheDocument();
     // expect(getByText(appointment, /could not save an appointment/i)).toBeInTheDocument();
     await waitForElement(() => getByText(appointment, /could not save an appointment/i));
-    // const day = getAllByTestId(container, "day").find(day =>
-    //   queryByText(day, "Monday")
-    // );
-    // expect(getByText(day, "no spots remaining")).toBeInTheDocument();
-    // console.log(prettyDOM(appointment))
-    // console.log(prettyDOM(day));
+  
+    expect(getByText(appointment, /could not save an appointment/i)).toBeInTheDocument();
   });
 
   it("shows the delete error when failing to delete an existing appointment", async () => {
@@ -153,11 +140,8 @@ describe("Application", () => {
     expect(getByText(appointment, "Deleting")).toBeInTheDocument();
     // 7. Wait until the element with the "Add" button is displayed.
     await waitForElement(() => getByText(appointment, /could not delete an appointment/i));
-    // const day = getAllByTestId(container, "day").find(day =>
+    
     expect(getByText(appointment, /could not delete an appointment/i)).toBeInTheDocument();
-    //   queryByText(day, "Monday")
-    // );
-    console.log(prettyDOM(appointment))
-    // console.log(prettyDOM(day));
+
   });
 });

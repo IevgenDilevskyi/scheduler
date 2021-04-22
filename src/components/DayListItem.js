@@ -3,6 +3,7 @@ import classnames from "classnames/bind";
 
 import "components/DayListItem.scss";
 
+// Renders the day info. Gets called in DayList component
 export default function DayListItem(props) {
 const dayClass = classnames("day-list__item", {
   "day-list__item--selected": props.selected,

@@ -1,8 +1,8 @@
 import React from "react";
 import classnames from "classnames/bind";
-
 import "components/InterviewerListItem.scss";
 
+// Renders one interviwer image (and name if selected)
 export default function InterviewerListItem(props) {
   const interviewerClass = classnames("interviewers__item", {
     "interviewers__item--selected": props.selected,

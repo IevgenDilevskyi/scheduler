@@ -1,26 +1,26 @@
 import React from "react";
-// import axios from "axios";
-
 import "components/Application.scss";
 import DayList from "components/DayList";
 import Appointment from "components/Appointment";
 import {getAppointmentsForDay, getInterview, getInterviewersForDay} from "../helpers/selectors";
 import useApplicationData from "hooks/useApplicationData";
 
+// Renders whole application page. Gets called in main index.js file
 export default function Application(props) {
-
+  
+  // State and functions from custom hool useApplicationData
   const {
     state,
     setDay,
     bookInterview,
     cancelInterview
   } = useApplicationData();
-
-  // console.log("DAYS", state.days);
-    
+  
+  // Helper functions from /helpers/selectors
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const dailyInterviewers = getInterviewersForDay(state, state.day);
-  // console.log("getInterviewersForDay", dailyInterviewers);
+
+  // Generates appointments for the day to render
   const schedule = dailyAppointments.map(appointment => {
     const interview = getInterview(state, appointment.interview);
     return(
@@ -34,7 +34,7 @@ export default function Application(props) {
         cancelInterview={cancelInterview}
       />
     )
-  })
+  });
   
   return (
     <main className="layout">

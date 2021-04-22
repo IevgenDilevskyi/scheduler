@@ -1,7 +1,7 @@
 import React from "react";
 
 import Button from "../../components/Button"
-
+//Dialog form rendered after clicking on Delete button.
 export default function Confirm(props) {
   return (
     <main className="appointment__card appointment__card--confirm">

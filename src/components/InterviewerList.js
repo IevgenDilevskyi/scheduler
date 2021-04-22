@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import "components/InterviewerList.scss";
-
 import InterviewerListItem from "./InterviewerListItem";
 
+// Renders list of interviewers. Gets called in Form component
 export default function InterviewerList(props) {
-  // console.log("props.interviewer", props.interviewer);
+
   const interviewers = props.interviewers.map(interviewer => {
     return (
         <InterviewerListItem

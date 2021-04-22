@@ -1,5 +1,6 @@
 import React from "react";
 
+//Header with time and separation line for every appointment
 export default function Header(props) {
   return (
     <header className="appointment__time">
