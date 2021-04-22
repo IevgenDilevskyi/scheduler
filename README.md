@@ -24,7 +24,7 @@ npm run storybook
 ```
 ## Screenshots
 
-!["Screenshot of main scheduler view"](https://raw.githubusercontent.com/stevencschoi/scheduler/master/docs/scheduler-no-spots-remaining.png)
+!["Screenshot of main scheduler view"](https://github.com/IevgenDilevskyi/scheduler/blob/master/docs/booking-interview)
 
 !["Screenshot of appointment editor"](https://raw.githubusercontent.com/stevencschoi/scheduler/master/docs/scheduler-edit-appointment.png)
 
