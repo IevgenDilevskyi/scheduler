@@ -154,9 +154,9 @@ describe("Application", () => {
     // 7. Wait until the element with the "Add" button is displayed.
     await waitForElement(() => getByText(appointment, /could not delete an appointment/i));
     // const day = getAllByTestId(container, "day").find(day =>
+    expect(getByText(appointment, /could not delete an appointment/i)).toBeInTheDocument();
     //   queryByText(day, "Monday")
     // );
-    // expect(getByText(day, "no spots remaining")).toBeInTheDocument();
     console.log(prettyDOM(appointment))
     // console.log(prettyDOM(day));
   });
