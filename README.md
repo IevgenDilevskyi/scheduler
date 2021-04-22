@@ -24,8 +24,8 @@ npm run storybook
 ```
 ## Screenshots
 
-!["Screenshot of main scheduler view"](https://github.com/IevgenDilevskyi/scheduler/blob/master/docs/booking-interview)
+!["Default View"](https://github.com/IevgenDilevskyi/scheduler/blob/master/docs/default-view.png)
 
-!["Screenshot of appointment editor"](https://raw.githubusercontent.com/stevencschoi/scheduler/master/docs/scheduler-edit-appointment.png)
+!["Booking Interview"](https://github.com/IevgenDilevskyi/scheduler/blob/master/docs/booking-interview.png)
 
-!["Screenshot of appointment deleting screen"](https://raw.githubusercontent.com/stevencschoi/scheduler/master/docs/scheduler-delete-appointment.png)
+!["Deleting INterview"](https://github.com/IevgenDilevskyi/scheduler/blob/master/docs/deleting-interview.png)
